@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# this symlinks all the dotfiles (and .vim/) to ~/
-# it also symlinks ~/bin for easy updating
+# it symlinks ~/bin for easy updating
 
 # this is safe to run multiple times and will prompt you about anything unclear
 
@@ -144,8 +143,6 @@ print_success() {
 
 # finds all .dotfiles in this folder
 declare -a FILES_TO_SYMLINK=$(find . -type f -maxdepth 1 -name ".*" -not -name .DS_Store -not -name .git -not -name .osx | sed -e 's|//|/|' | sed -e 's|./.|.|')
-FILES_TO_SYMLINK="$FILES_TO_SYMLINK .vim bin .config/fish" # add in vim and the binaries
-
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
